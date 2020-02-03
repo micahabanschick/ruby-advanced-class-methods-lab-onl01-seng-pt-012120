@@ -43,7 +43,7 @@ class Song
     return @@all
   end 
   
-  def new_from_filename(filename)
+  def self.new_from_filename(filename)
     arr = filename.split(/[-\.]/)
     arr[0] = @artist_name 
     arr[1] = @name
@@ -52,7 +52,11 @@ class Song
     
   end 
     
-    def create_from_filename(filename)
+    def self.create_from_filename(filename)
+    end 
+    
+    def self.destroy_all
+      @@all = []
     end 
   
 end
