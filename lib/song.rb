@@ -1,5 +1,5 @@
 class Song
-  attr_accessor :name, :artist_name
+  attr_accessor :name, :artist_name, :filename 
   @@all = []
 
   def self.all
@@ -32,6 +32,27 @@ class Song
   
   def self.find_or_create_by_name(name)
     if @@all.any?{|song| song.name == name} == true 
-      return @@all.each
+      return @@all.each{|song| return song if song.name == name}
+    else 
+      Song.new(name)
+    end 
+  end 
+  
+  def self.alphabetical
+    @@all.sort{|song1,song2| song1 <=> song2}
+    return @@all
+  end 
+  
+  def new_from_filename(filename)
+    arr = filename.split(/[-\.]/)
+    arr[0] = @artist_name 
+    arr[1] = @name
+    Song.new(filename)
+    @filename = filename
+    
+  end 
+    
+    def create_from_filename(filename)
+      
   
 end
