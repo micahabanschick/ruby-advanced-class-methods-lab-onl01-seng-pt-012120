@@ -43,7 +43,7 @@ class Song
     if @@all.any?{|song| song.name == name} == true 
       @@all.each{|song| return song if song.name == name}
     else 
-      self.create_by_name(name)
+      Song.create_by_name(name)
     end 
   end 
   
