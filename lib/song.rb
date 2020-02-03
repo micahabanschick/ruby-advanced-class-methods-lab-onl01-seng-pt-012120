@@ -35,7 +35,7 @@ class Song
     if @@all.any?{|song| song.name == name} == true 
       return @@all.each{|song| return song if song.name == name}
     else 
-      false
+      nil
     end 
   end 
   
