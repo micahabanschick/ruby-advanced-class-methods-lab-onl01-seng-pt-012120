@@ -41,7 +41,7 @@ class Song
   
   def self.find_or_create_by_name(name)
     if @@all.any?{|song| song.name == name} == true 
-      @@all.each{|song| return song if song.name == name}
+      Song.file_by_name(name)
     else 
       Song.create_by_name(name)
     end 
