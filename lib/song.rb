@@ -40,11 +40,7 @@ class Song
   end 
   
   def self.find_or_create_by_name(name)
-    if @@all.any?{|song| song.name == name} == true 
-      Song.file_by_name(name)
-    else 
-      Song.create_by_name(name)
-    end 
+    @@all.any?{|song| song.name == name} ? @@all.each{|song| return song if song.name == name} : self.file_by_name
   end 
   
   def self.alphabetical
